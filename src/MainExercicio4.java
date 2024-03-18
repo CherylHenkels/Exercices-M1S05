@@ -40,7 +40,7 @@ public class MainExercicio4 {
 
         Jogador jogador11 = new Jogador("Catarina", 25, 123, 1);
         melhoresJogadores.add(jogador11);
-        
+
 
         // jogo
         jogo(scanner, melhoresJogadores);
