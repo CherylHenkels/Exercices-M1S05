@@ -58,4 +58,9 @@ public class Jogador {
         this.numeroTentativas++;
     }
 
+    public void jogoJogador(int pontuacao){
+        adicionaTentativa();
+        setPontuacao(pontuacao);
+    }
+
 }
