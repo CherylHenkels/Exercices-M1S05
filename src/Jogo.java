@@ -67,4 +67,43 @@ public class Jogo {
         System.out.println("Número total de jogadas: " + numeroJogadas);
         System.out.println("Pontuação do melhor jogador: " + melhorJogador.getPontuacao());
     }
+
+    public void jogar(int num) {
+        Scanner scanner = new Scanner(System.in);
+
+        int numeroSorteado = (int) (Math.random() * (num + 1));
+
+        while (true) {
+            System.out.println("Tente adivinhar o número. Digite um valor entre 0 e " + num + " :");
+
+            int tentativa = scanner.nextInt();
+            scanner.nextLine();
+
+
+            if (tentativa == numeroSorteado) {
+                System.out.println("Você acertou! O número sorteado é " + numeroSorteado);
+                melhorJogador.setPontuacao(melhorJogador.getPontuacao() + 1);
+            } else {
+                System.out.println("Você errou!");
+                melhorJogador.setPontuacao(melhorJogador.getPontuacao() - 1);
+            }
+
+
+            // Incrementa o número de jogadas e tentativas
+            numeroJogadas++;
+            melhorJogador.setNumeroTentativas(melhorJogador.getNumeroTentativas() + 1);
+
+            // Pergunta ao jogador se ele quer jogar novamente
+            System.out.println("Deseja jogar novamente? (s/n)");
+            String continuar = scanner.nextLine();
+            if (!continuar.equalsIgnoreCase("s")) {
+                break;
+            }
+        }
+
+        // Imprime o número total de jogadas e a pontuação do melhor jogador
+        System.out.println("Número total de jogadas: " + numeroJogadas);
+        System.out.println("Pontuação do melhor jogador: " + melhorJogador.getPontuacao());
+    }
+
 }
